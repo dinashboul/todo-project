@@ -11,38 +11,45 @@ function  Names(){
 var txt;
 function Gender(){
    txt=prompt("Please  enter Your Gender"); 
-   myArry.push(txt);  
-   switch(txt) {
-      case "male":
-       alert("your Gender is Male");
-        break;
-      case "female":
-         alert("your Gender is FeMale");
-        break;
-      case "":
-         alert("your Gender is invalid");
-         break;
-        default :
-        prompt("Please renter Your Gender");
-        break;
+    while(1){
+         if(txt!=="male" && txt!=="female"){
+            txt=prompt("Please  renter Your Gender"); 
+         } 
+         else if(txt ==="male")
+               {
+                  alert("your Gender is Male");
+                  myArry.push(txt);
+                  break;
+               }
+               else{
+                  alert("your Gender is feMale");
+                  myArry.push(txt);
+                  break;
+               }
+            
+         }
+
       }
-      
-                  }
+                  
 
        function Ages(){         
       var Age = prompt("Please enter your age");
-      myArry.push(Age);
-      if(Age ==0){
-         alert("your age equal zero");
+      while(1){
+     
+      if(Age<=0){
+         alert("your age is less than or equal zero");
+         Age = prompt("Please renter your age");
+
       }
-      else if( Age<0)
+      else if(Age>0)
       {
-         alert("your Age is less than 0");
+         myArry.push(Age);
+         break;
          
-         
+         } 
+         else{ Age = prompt("Please renter your age");
       }
-     
-     
+         }    
    }
    
    function welcomeMsg(){
@@ -64,27 +71,45 @@ function Gender(){
       }
 
       function Work(){
-         if(txt === "female"){
-            confirm("Are you a housewife?");
-         }
-         else {
-            confirm("Are you unemployed?");
+        var myWork=prompt("Are you unemployed?");
+         if(myWork!=="yes"&& myWork!=="no"){
+            alert("your Answer is invalid");
+            myArry.push("Invalid Input");
+         } else{ 
+            myArry.push("Are you unemployed?   "+myWork);
          }
       }
 
       function Favourite(){
-         if(txt === "female"){
-            confirm("Do you like cooking?");
+         var myFavourite =prompt("Do you like food?");
+         if(myFavourite!=="yes"&& myFavourite!=="no"){
+            alert("your Answer is invalid");
+            myArry.push("Invalid Input");
+         } else{ 
+            myArry.push("Do you like food?  "+myFavourite);
          }
-         else {
-            confirm("Do you like to drive cars?");
-         }
+
+
       }
 
 
       function yourStatus(){
         
-            confirm("Are you married?");
+       var Status = prompt("Are you married?");
+         
+       if(Status!=="yes"&& Status!=="no"){
+            alert("your Answer is invalid");
+            myArry.push("Invalid Input");
+         } else{ 
+            myArry.push("Are you married?   "+Status);
+         }
+
+      }
+
+      function Print(){
+         for(let i=0 ;i<myArry.length;i++){
+            console.log(myArry[i]);
+         }
       }
 
       Names();
@@ -94,4 +119,4 @@ function Gender(){
       Work();
       Favourite();
       yourStatus();
-      console.log(myArry);
+      Print();
